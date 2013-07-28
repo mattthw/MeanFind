@@ -3,17 +3,6 @@ package us.mattmccoy.meanfind;
 //import java.util.Arrays;
 
 
-/*
- * TO DO:
- *  � DARK THEME OPTION
- *  � HELP FOR MEAN MEDIAN AND MODE
- *  � FIX MODE ANSER FORMAT (easy)
- *  � FIX HORIZONTAL LAYOUT
- *  � Get suggestions?
- *  � RENAME?
- *  
- */
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -67,25 +56,13 @@ public class MainActivity extends Activity {
         preferences = this.getSharedPreferences("us.mattmccoy.meanfind", Context.MODE_PRIVATE);
         edit = preferences.edit();
         theme = preferences.getString(themeKEY, "light");
-        //set theme
-        setTheme(R.style.AppTheme);
-        /*if ("BBOX".equalsIgnoreCase( getIntent().getStringExtra( "dark" )))
-        {
-            setTheme(R.style.DarkTheme);
-            edit.putString("themeKEY", "dark").commit();
-        }
-        else if ("BBOXWHITE".equalsIgnoreCase( getIntent().getStringExtra( "light" )))
-        {
-            setTheme(R.style.AppTheme);
-            edit.putString("themeKEY", "light").commit();
-        }*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         autoclear = preferences.getBoolean(autoclearKEY, false);
         copyIt = preferences.getBoolean(copyItKEY, false);
         data = preferences.getString(dataKEY, "");
-        //themeState();
+        //set boxes checked on start
         dataListener();
         addListenerBoxes();
         if (autoclear == true) {
@@ -126,9 +103,9 @@ public class MainActivity extends Activity {
     }
 
 
-    public void comingSoon() {
+    /*public void comingSoon() {
 
-    }
+    }*/
 
     //delete info on close
     public void onStop() {
@@ -165,15 +142,6 @@ public class MainActivity extends Activity {
     //check box listeners
     public void addListenerBoxes() {
         //instantiate elements
-        /*TextView learn = (TextView) findViewById(R.id.learn);
-        learn.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //is acBox checked?
-                learn();
-            }
-        });*/
         acBox = (CheckBox) findViewById(R.id.chex2);
         acBox.setOnClickListener(new OnClickListener() {
 
@@ -204,31 +172,7 @@ public class MainActivity extends Activity {
 
             }
         });
-        /*myThemeBox = (CheckBox) findViewById(R.id.chex3);
-        myThemeBox.setOnClickListener(new OnClickListener() {
-            public void onClick(View view) {
-                if (myThemeBox.isChecked() == true) {
-                    //Toast no = Toast.makeText(getApplicationContext(), "Coming soon!", Toast.LENGTH_SHORT);
-                    //no.show();
-                    myThemeBox.setChecked(false);
-                }
-					edit.putString(themeKEY, "dark").commit();
-					Intent black = getIntent();
-					black.putExtra("dark", "BBOX");
-					finish();
-					startActivity(black);
-				}
-				if(myThemeBox.isChecked()==false){
-					edit.putString(themeKEY, "light").commit();
-					Intent white = getIntent();
-					white.putExtra("light", "BBOXWHITE");
-					finish();
-					startActivity(white);
-				}
 
-                //startActivity(getIntent());
-            }
-        });*/
 
     }
 
