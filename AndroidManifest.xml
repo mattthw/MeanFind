@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="us.mattmccoy.meanfind"
+    android:versionCode="5"
+    android:versionName="1.3" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_mmm"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="us.mattmccoy.meanfind.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="us.mattmccoy.meanfind.OptionsPage"
+            android:label="@string/title_activity_options_page"
+            android:parentActivityName="us.mattmccoy.meanfind.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="us.mattmccoy.meanfind.MainActivity" />
+        </activity>
+        <activity
+            android:name="us.mattmccoy.meanfind.AboutPage"
+            android:label="@string/title_activity_about_page"
+            android:parentActivityName="us.mattmccoy.meanfind.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="us.mattmccoy.meanfind.MainActivity" />
+        </activity>
+        <activity
+            android:name="us.mattmccoy.meanfind.LearnActivity"
+            android:label="@string/title_activity_learn"
+            android:parentActivityName="us.mattmccoy.meanfind.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="us.mattmccoy.meanfind.MainActivity" />
+        </activity>
+        <activity
+            android:name="us.mattmccoy.meanfind.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName="us.mattmccoy.meanfind.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="us.mattmccoy.meanfind.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

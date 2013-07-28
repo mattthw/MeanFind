@@ -1,0 +1,193 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity" >
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:maxWidth="@dimen/p1Len"
+        android:text="@string/p1"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+    <!-- START MIDDLE -->
+
+    <TextView
+        android:id="@+id/dataLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dataLabel"
+        android:layout_alignLeft="@+id/ansType"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/ansType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dataType"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/dataLabel"/>
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:paddingLeft="20dp"
+        android:layout_toRightOf="@+id/ansType"
+        android:layout_alignBaseline="@+id/ansType"
+        android:layout_alignBottom="@+id/ansType" />
+
+    <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollData"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:layout_toRightOf="@+id/dataLabel"
+            android:layout_alignBottom="@+id/dataLabel" >
+        <TextView
+                android:id="@+id/dataID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"/>
+    </HorizontalScrollView>
+
+
+    <!-- END MIDDLE -->
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view2"
+        android:text="@string/options"
+        android:layout_marginBottom="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/button2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:onClick="clearNums"
+        android:text="@string/CE"
+        android:layout_toLeftOf="@+id/button1"
+        android:layout_alignTop="@+id/num_input"
+        android:layout_alignBottom="@+id/num_input"/>
+    <Button
+        android:id="@+id/button3"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:onClick="addComma"
+        android:text="@string/COMMA"
+        android:layout_toRightOf="@+id/num_input"
+        android:layout_alignTop="@+id/num_input"
+        android:layout_alignBottom="@+id/num_input"/>
+
+    <EditText
+        android:id="@+id/num_input"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:gravity="center_vertical"
+        android:digits="0123456789,."
+        android:ems="10"
+        android:hint="@string/num_hint"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp">
+
+        <requestFocus />
+    </EditText>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#0099ff"
+        android:layout_alignTop="@+id/scrollbox1"
+        android:layout_alignLeft="@+id/textView4"/>
+	<ScrollView
+    android:id="@+id/scrollbox1"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginLeft="10dp"
+    android:layout_above="@+id/view1" >
+        <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+        	<CheckBox
+	        android:id="@+id/chex"
+    	    android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textColor="#1C1C1C"
+        	android:text="@string/cb" />
+        	<CheckBox
+      		android:id="@+id/chex2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textColor="#1C1C1C"
+        	android:text="@string/ac" />
+
+
+  	  </TableLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/num_input"
+        android:layout_below="@+id/num_input"
+        android:textColor="#0099ff"
+        android:onClick="Mode"
+        android:text="@string/b3" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_toLeftOf="@+id/button3"
+        android:textColor="#0099ff"
+        android:onClick="Median"
+        android:text="@string/b2" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/num_input"
+        android:layout_toLeftOf="@+id/button4"
+        android:textColor="#0099ff"
+        android:onClick="Mean"
+        android:text="@string/b1" />
+
+
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/view2"
+        android:layout_marginBottom="26dp"
+        android:background="#0099ff"
+        android:layout_alignLeft="@+id/view2"/>
+
+
+</RelativeLayout>

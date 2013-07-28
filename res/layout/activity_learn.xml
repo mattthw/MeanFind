@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".LearnActivity" >
+
+    <ScrollView
+        android:id="@+id/scrollviewlearn"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <TableLayout
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:stretchColumns="1">
+
+            <TextView
+                android:id="@+id/meanlearn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/b1"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        	<TextView
+        	    android:id="@+id/textView1"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:text="@string/meaninfo" />
+
+        	<Button
+        	    android:id="@+id/button1"
+        	    style="?android:attr/buttonStyleSmall"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:onClick="mean"
+        	    android:text="@string/wiki" />
+
+        	<TextView
+        	    android:id="@+id/medianlearn"
+        	    android:layout_width="wrap_content"
+     	   		android:layout_height="wrap_content"
+        		android:text="@string/b2"
+        		android:layout_marginBottom="10dp"
+        		android:layout_marginTop="10dp"
+        		android:textAppearance="?android:attr/textAppearanceLarge" >
+        	</TextView>
+
+        	<TextView
+        	    android:id="@+id/textView2"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:text="@string/medianinfo" />
+
+        	<Button
+        	    android:id="@+id/button2"
+        	    style="?android:attr/buttonStyleSmall"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:onClick="median"
+        	    android:text="@string/wiki" />
+
+        	<TextView
+        	    android:id="@+id/modelearn"
+        	    android:layout_width="wrap_content"
+     	   		android:layout_height="wrap_content"
+        		android:text="@string/b3"
+        		android:layout_marginBottom="10dp"
+        		android:layout_marginTop="10dp"
+        		android:textAppearance="?android:attr/textAppearanceLarge" >
+        	</TextView>
+
+        	<TextView
+        	    android:id="@+id/textView3"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:text="@string/modeinfo" />
+        	<Button
+        	    android:id="@+id/button3"
+        	    style="?android:attr/buttonStyleSmall"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:onClick="mode"
+        	    android:text="@string/wiki" />
+        
+        </TableLayout>
+    </ScrollView>
+
+</RelativeLayout>
