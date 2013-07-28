@@ -125,19 +125,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    //*****************************************MENU*MENU*MENU*
-    //set theme on open
-	/*public void themeState(){
-		myThemeBox = (CheckBox) findViewById(R.id.chex3);
-		if(theme == "dark"){
-			myThemeBox.setChecked(true);
-			//edit.putString(themeKEY, "dark").commit();
-		}else{
-			//setTheme(R.style.DarkTheme);
-			myThemeBox.setChecked(false);
-			//edit.putString(themeKEY, "light").commit();
-		}
-	}*/
+
     public void comingSoon() {
 
     }
