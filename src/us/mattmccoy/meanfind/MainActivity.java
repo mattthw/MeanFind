@@ -3,9 +3,6 @@ package us.mattmccoy.meanfind;
 //import java.util.Arrays;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -28,6 +25,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MainActivity extends Activity {
 
 
@@ -48,7 +48,8 @@ public class MainActivity extends Activity {
     //normal private data
     int dividend;
     String dataFixed;
-    private CheckBox myCBox, acBox, myThemeBox;
+    private CheckBox myCBox, acBox;
+    private boolean needed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,7 @@ public class MainActivity extends Activity {
         //set boxes checked on start
         dataListener();
         addListenerBoxes();
-        if (autoclear == true) {
+        if (autoclear) {
             acBox.setChecked(true);
         } else {
             acBox.setChecked(false);
@@ -94,9 +95,9 @@ public class MainActivity extends Activity {
             case R.id.about_settings:
                 about();
                 return true;
-	    case R.id.learn_settings:
-	        learn();
-	        return true;
+            case R.id.learn_settings:
+                learn();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -182,12 +183,14 @@ public class MainActivity extends Activity {
         nums.setText("");
         edit.putString(dataKEY, "").commit();
     }
-    public void addComma(View view){
+
+    public void addComma(View view) {
         EditText numString = (EditText) findViewById(R.id.num_input);
         String temp = numString.getText().toString();
-        numString.setText(temp+",", TextView.BufferType.EDITABLE);
+        numString.setText(temp + ",", TextView.BufferType.EDITABLE);
         numString.setSelection(numString.length());
     }
+
     public void about() {
         Intent a = new Intent(this, AboutPage.class);
         startActivity(a);
@@ -217,23 +220,35 @@ public class MainActivity extends Activity {
     public void calculate(View view, int type) {
         final EditText numString = (EditText) findViewById(R.id.num_input);
         //String[] nums = obj.removeCommas(numString.getText().toString());
-        String temp = numString.getText().toString().replaceAll(",,", ",");
-        edit.putString(dataKEY, temp).commit();
-        String[] nums = temp.split(",");
-        //prevent calculation if user has no data entered
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i].equals("") && temp != "") {
-                Toast err = Toast.makeText(getApplicationContext(), "WRONG COMMA USAGE, IDIOT!", Toast.LENGTH_LONG);
-                err.show();
-                return;
+        String temp = numString.getText().toString();
+        //no blank entries or inappropriate commas
+        if (temp.equals("")|| temp.substring(0,1).equals(",")) {
+            if(temp.substring(0,1).equals(",")) {
+                Toast commaToast = Toast.makeText(getApplicationContext(), "Wrong comma usage!", Toast.LENGTH_SHORT);
+                commaToast.show();
             }
-        }
-        if (temp.equals("")) {
             return;
         }
-        //remove double commas
-        //temp.replace(",,", ",");
-        //String[] nums = temp.split(",");
+        //remove extra commas if needed
+        for(int i = 0; i < temp.length()-2;i++){
+            if( temp.substring(i,i+2).equals(",,") ){
+                temp = temp.substring(0,i)+","+temp.substring(i+2);
+                numString.setText(temp, TextView.BufferType.EDITABLE);
+                i=0;
+            }
+        }
+
+        //save string incase close app
+        edit.putString(dataKEY, temp).commit();
+        String[] nums = temp.split(",");
+        /*   wtf is this
+        ArrayList<String> nums2 = new ArrayList<String>(Arrays.asList(nums));
+        for(int i = 0;i<nums.length;i++){
+            if(nums2.get(i).equals("")){
+                nums2.remove(i);
+            }
+        }
+        nums = nums2.toArray(nums);*/
         dataFixed = Arrays.toString(nums);//temp;
         double[] newNums = new double[nums.length];
         for (int i = 0; i < newNums.length; i++) {
@@ -253,7 +268,7 @@ public class MainActivity extends Activity {
                 b++;
             }
             ans = ans / b;
-            ans = (double)Math.round(ans * 100000) / 100000;
+            ans = (double) Math.round(ans * 100000) / 100000;
             final String ansString = Double.toString(ans);
             showDialog(ansString, type, "Mean:");
         } else if (type == 2) { //median
