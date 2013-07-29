@@ -1,1 +1,1 @@
-I just wrote something in the README file.
+This is the Mean, Median, Mode application on the google play store made by me.
