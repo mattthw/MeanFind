@@ -221,8 +221,11 @@ public class MainActivity extends Activity {
         final EditText numString = (EditText) findViewById(R.id.num_input);
         //String[] nums = obj.removeCommas(numString.getText().toString());
         String temp = numString.getText().toString();
-        //no blank entries or inappropriate commas
-        if (temp.equals("")|| temp.substring(0,1).equals(",")) {
+        //no blank entries
+        if(temp.equals(""))
+            return;
+        //no inappropriate commas
+        if (temp.substring(0,1).equals(",")) {
             if(temp.substring(0,1).equals(",")) {
                 Toast commaToast = Toast.makeText(getApplicationContext(), "Wrong comma usage!", Toast.LENGTH_SHORT);
                 commaToast.show();
