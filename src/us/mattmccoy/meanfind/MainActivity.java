@@ -244,14 +244,7 @@ public class MainActivity extends Activity {
         //save string incase close app
         edit.putString(dataKEY, temp).commit();
         String[] nums = temp.split(",");
-        /*   wtf is this
-        ArrayList<String> nums2 = new ArrayList<String>(Arrays.asList(nums));
-        for(int i = 0;i<nums.length;i++){
-            if(nums2.get(i).equals("")){
-                nums2.remove(i);
-            }
-        }
-        nums = nums2.toArray(nums);*/
+
         dataFixed = Arrays.toString(nums);//temp;
         double[] newNums = new double[nums.length];
         for (int i = 0; i < newNums.length; i++) {
