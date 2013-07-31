@@ -26,18 +26,12 @@ public class AboutPage extends Activity {
 		setContentView(R.layout.activity_about_page);
 		setupActionBar();
 	}
-
-    public void doTest(){
-        Toast wat = Toast.makeText(getApplicationContext(),"boobs", Toast.LENGTH_SHORT);
-        wat.show();
-    }
 	//GOTO URL
 	public void website(View view){
         Uri uriUrl = Uri.parse("http://mattmccoy.us/");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
-
     //Rate app
     public void rateApp(View view){
         Uri uri = Uri.parse("market://details?id=" + getPackageName());
