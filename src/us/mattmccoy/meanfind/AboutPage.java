@@ -2,6 +2,7 @@ package us.mattmccoy.meanfind;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class AboutPage extends Activity {
@@ -22,7 +24,6 @@ public class AboutPage extends Activity {
 		super.onCreate(savedInstanceState);
 		setTheme(R.style.AppTheme);
 		setContentView(R.layout.activity_about_page);
-		// Show the Up button in the action bar.
 		setupActionBar();
 	}
 
@@ -33,6 +34,16 @@ public class AboutPage extends Activity {
         startActivity(launchBrowser);
     }
 
+    //Rate app
+    public void rateApp(View view){
+        Uri uri = Uri.parse("market://details?id=" + getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "Could not launch market.", Toast.LENGTH_LONG).show();
+        }
+    }
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
 	 */
