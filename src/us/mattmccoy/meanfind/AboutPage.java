@@ -27,6 +27,10 @@ public class AboutPage extends Activity {
 		setupActionBar();
 	}
 
+    public void doTest(){
+        Toast wat = Toast.makeText(getApplicationContext(),"boobs", Toast.LENGTH_SHORT);
+        wat.show();
+    }
 	//GOTO URL
 	public void website(View view){
         Uri uriUrl = Uri.parse("http://mattmccoy.us/");

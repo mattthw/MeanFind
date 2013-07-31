@@ -28,19 +28,12 @@ public class MainActivity extends Activity {
     //instantiate preferences & an editor
     SharedPreferences preferences;
     Editor edit;
-    //Commented out becuae i was being LAZY
-    //String a1utoclearKEY = "us.mattmccoy.meanfind.AUTOCLEAR";
-    //String c1opyItKEY = "us.mattmccoy.meanfind.COPYIT";
-    //String d1ataKEY = "us.mattmccoy.meanfind.DATA";
 
     //classwide variables
-    boolean autoclear;
-    boolean copyIt;
-    String data;
-    //textview is for input box etc
+    boolean autoclear, copyIt;
+    String data, dataFixed;
     TextView result_type;
     int dividend;
-    String dataFixed;
     private CheckBox radio_clipboard, radio_autoclear;
 
     @Override
@@ -83,7 +76,7 @@ public class MainActivity extends Activity {
 
     //Listen for changed needed in preferences file
     public void dataListener() {
-        EditText numString = (EditText) findViewById(R.id.num_input);
+        /*EditText numString = (EditText) findViewById(R.id.num_input);
         numString.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -96,8 +89,7 @@ public class MainActivity extends Activity {
                 EditText numString = (EditText) findViewById(R.id.num_input);
                 edit.putString("us.mattmccoy.meanfind.DATA", numString.getText().toString() ).commit();
             }
-        });
-        numString.setText(data, TextView.BufferType.EDITABLE);
+        });*/
         //instantiate autoclear checkbox
         radio_autoclear = (CheckBox) findViewById(R.id.chex2);
         radio_autoclear.setOnClickListener(new OnClickListener() {
@@ -120,22 +112,18 @@ public class MainActivity extends Activity {
                 //is radio_clipboard checked?
                 if (((CheckBox) view).isChecked()) {
                     edit.putBoolean("us.mattmccoy.meanfind.COPYIT", true).commit();
-
-
                 } else {
                     edit.putBoolean("us.mattmccoy.meanfind.COPYIT", false).commit();
-
                 }
-
             }
         });
     }
 
-    //delete data if actually closing
-    public void onStop() {
-        edit.putString("us.mattmccoy.meanfind.DATA", "").commit();
+    /*public void onStop() {
+        EditText numString = (EditText) findViewById(R.id.num_input);
+        edit.putString("us.mattmccoy.meanfind.DATA", numString.getText().toString() ).commit();
         super.onStop();
-    }
+    }*/
     public void clearNums(View view) {
         EditText nums = (EditText) findViewById(R.id.num_input);
         nums.setText("");
