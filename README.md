@@ -1,1 +1,1 @@
-This is the Mean, Median, Mode application on the google play store made by me.
+This is the Mean, Median, Mode application on the google play store. Feel free to make a pull request, comment, or file an bug. I will only make updates to this application if it breaks (unless there is a small request/ bugfix!). It was made to help learn the Android development process and imo the code is sloppy.
