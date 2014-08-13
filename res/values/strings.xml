@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="t1">Usage:</string>
-    <string name="p1">Insert number values separated by commas. Press the book icon for more information.</string>
+    <string name="p1">Insert number values separated by commas. Press the book icon for a detailed explanation.</string>
     <string name="num_hint">num1, num2, etc...</string>
     <string name="b1">Mean</string>
     <string name="credittitle">Background:</string>
@@ -19,7 +19,9 @@
     <string name="options">Options:</string>
     <string name="about2">About</string>
     <string name="rate">Rate</string>
-    <string name="version">Mean, Median, Mode (MeanFind) is an app I made to try and learn the android development process. I found the process very pleasing and look forward to doing more work in code. If you would like you can rate Mean, Median, Mode in the app sotre using the button above.        -Matt</string>
+    <string name="version">Mean, Median, Mode is an app I made to try and learn the android development process. \n If you would like you can rate Mean, Median, Mode in the app store using the button above. \n\nThis project is available on my github for contribution or forking.       -Matt</string>
+
+
     <string name="COMMA">,</string>
     <string name="dataLabel">Data:</string>
     <string name="title_activity_about_page">About</string>

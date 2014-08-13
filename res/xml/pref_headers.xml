@@ -3,13 +3,13 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="us.mattmccoy.meanfind.AboutActivity$GeneralPreferenceFragment"
+        android:fragment="us.mattmccoy.meanmedianmode.AboutActivity$GeneralPreferenceFragment"
         android:title="@string/pref_header_general" />
     <header
-        android:fragment="us.mattmccoy.meanfind.AboutActivity$NotificationPreferenceFragment"
+        android:fragment="us.mattmccoy.meanmedianmode.AboutActivity$NotificationPreferenceFragment"
         android:title="@string/pref_header_notifications" />
     <header
-        android:fragment="us.mattmccoy.meanfind.AboutActivity$DataSyncPreferenceFragment"
+        android:fragment="us.mattmccoy.meanmedianmode.AboutActivity$DataSyncPreferenceFragment"
         android:title="@string/pref_header_data_sync" />
 
 </preference-headers>

@@ -1,4 +1,4 @@
-package us.mattmccoy.meanfind;
+package us.mattmccoy.meanmedianmode;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import us.mattmccoy.meanfind.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +53,7 @@ public class MainActivity extends Activity {
     public void loadOptions(){
         autoclear = preferences.getBoolean("us.mattmccoy.meanfind.AUTOCLEAR", false);
         copyIt = preferences.getBoolean("us.mattmccoy.meanfind.COPYIT", false);
-        data = preferences.getString("us.mattmccoy.meanfind.DATA", "78");
+        data = preferences.getString("us.mattmccoy.meanfind.DATA","");
         if (autoclear) {
             radio_autoclear.setChecked(true);
         } else {

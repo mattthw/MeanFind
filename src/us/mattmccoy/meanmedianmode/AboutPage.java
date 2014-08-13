@@ -1,7 +1,8 @@
-package us.mattmccoy.meanfind;
+package us.mattmccoy.meanmedianmode;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -10,34 +11,35 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+import us.mattmccoy.meanfind.R;
 
-public class LearnActivity extends Activity {
 
+public class AboutPage extends Activity {
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTitle("Learn");
 		setTheme(R.style.AppTheme);
-		setContentView(R.layout.activity_learn);
-		// Show the Up button in the action bar.
+		setContentView(R.layout.activity_about_page);
 		setupActionBar();
 	}
-
-	public void mean(View view){
-		Uri uriUrl = Uri.parse("http://m.wikipedia.org/wiki/Mean_(statistics)");
+	//GOTO URL
+	public void website(View view){
+        Uri uriUrl = Uri.parse("http://bluecabod.com/");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
-	}
-	public void median(View view){
-		Uri uriUrl2 = Uri.parse("http://m.wikipedia.org/wiki/Median_(statistics)");
-        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl2);
-        startActivity(launchBrowser);
-	}
-	public void mode(View view){
-		Uri uriUrl3 = Uri.parse("http://m.wikipedia.org/wiki/Mode_(statistics)");
-        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl3);
-        startActivity(launchBrowser);
-	}
+    }
+    //Rate app
+    public void rateApp(View view){
+        Uri uri = Uri.parse("market://details?id=" + getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "Could not launch market.", Toast.LENGTH_LONG).show();
+        }
+    }
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
 	 */
@@ -51,7 +53,7 @@ public class LearnActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.learn, menu);
+		getMenuInflater().inflate(R.menu.about_page, menu);
 		return true;
 	}
 
@@ -71,5 +73,6 @@ public class LearnActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	
+	
 }

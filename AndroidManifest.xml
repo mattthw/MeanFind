@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="us.mattmccoy.meanfind"
-    android:versionCode="7"
-    android:versionName="1.4.1" >
+    android:versionCode="8"
+    android:versionName="1.5.0" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="us.mattmccoy.meanfind.MainActivity"
+            android:name="us.mattmccoy.meanmedianmode.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing" >
@@ -25,33 +25,33 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="us.mattmccoy.meanfind.OptionsPage"
+            android:name="us.mattmccoy.meanmedianmode.OptionsPage"
             android:label="@string/title_activity_options_page"
-            android:parentActivityName="us.mattmccoy.meanfind.MainActivity" >
+            android:parentActivityName="us.mattmccoy.meanmedianmode.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="us.mattmccoy.meanfind.MainActivity" />
         </activity>
         <activity
-            android:name="us.mattmccoy.meanfind.AboutPage"
+            android:name="us.mattmccoy.meanmedianmode.AboutPage"
             android:label="@string/title_activity_about_page"
-            android:parentActivityName="us.mattmccoy.meanfind.MainActivity" >
+            android:parentActivityName="us.mattmccoy.meanmedianmode.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="us.mattmccoy.meanfind.MainActivity" />
         </activity>
         <activity
-            android:name="us.mattmccoy.meanfind.LearnActivity"
+            android:name="us.mattmccoy.meanmedianmode.LearnActivity"
             android:label="@string/title_activity_learn"
-            android:parentActivityName="us.mattmccoy.meanfind.MainActivity" >
+            android:parentActivityName="us.mattmccoy.meanmedianmode.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="us.mattmccoy.meanfind.MainActivity" />
         </activity>
         <activity
-            android:name="us.mattmccoy.meanfind.AboutActivity"
+            android:name="us.mattmccoy.meanmedianmode.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName="us.mattmccoy.meanfind.MainActivity" >
+            android:parentActivityName="us.mattmccoy.meanmedianmode.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="us.mattmccoy.meanfind.MainActivity" />
